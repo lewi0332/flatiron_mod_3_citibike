@@ -93,7 +93,7 @@ The accuracy here is not execptional, however the results are better than a rand
 
 https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/citibike_rand_forrest.ipynb
 
-Our first real model will be run with the Random Forrest Classifier. 
+Our first model on the full data will be run with the Random Forrest Classifier. 
 
 To find the best tuning for our model we start with a Grid Search function.  The Grid Search will iterate over our Random Forrest Classifier changing the hyperparameters each time looking for the best performing model. We start with the following grid of parameters to test: 
 
@@ -130,18 +130,72 @@ Feature Importance for Random Forrest:
 
 ### Roc Curve
 
+explain roc curve
+
 ![Roc Curve Graph](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/roc_curve.png)
 
 
 
-## Support Vector Machines
+### Support Vector Machines
+
+https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/citibike_svm.ipynb
+
+We then ran our data through a Suport Vector Classification algorithim. In this iteration we will run three styles of the support vector classification algorithm. The first is a linear classification of the data, the second is an RBF kernel style classfication and lastly the Poly Kernel.
+
+Parameter Search - 
+We begin each trial with a parameter search similar to the grid search above. This will determine the best parameters to fit our data. 
+
+* Linear Model
+
+|   | Best Parameters  |
+| ------------- | ------------- |
+| c  | 1 |
+| Gamma  | 0.001 |
 
 
 |   | Support Vector Machine Test |
 | ------------- | ------------- |
-| Training Accuracy  | 86.19%  |
-| Validation Accuracy  | 65.4%  |
+| Training Accuracy  | 7.6%  |
+| Validation Accuracy  | 6.56%  |
 
+
+![svm linear](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/svm_linear_cfm.png)
+
+
+* RBF Model
+
+|   | Best Parameters  |
+| ------------- | ------------- |
+| c  | 1 |
+| Gamma  | 0.1 |
+
+
+
+|   | Support Vector Machine Test |
+| ------------- | ------------- |
+| Training Accuracy  | 7.573%  |
+| Validation Accuracy  | 6.667%  |
+
+
+![svm rbf](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/svm_rbf_cfm.png)
+
+
+* Poly Kernel Model
+
+|   | Best Parameters  |
+| ------------- | ------------- |
+| c  | 0.001 |
+| Gamma  | 1 |
+
+
+
+|   | Support Vector Machine Test |
+| ------------- | ------------- |
+| Training Accuracy  | 6.658%  |
+| Validation Accuracy  | 6.133%  |
+
+
+![svm poly](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/svm_poly_sfm.png)
 
 ## XGBoost
 
@@ -157,6 +211,27 @@ Feature Importance for Random Forrest:
 | ------------- | ------------- |
 | Training Accuracy  | XX%  |
 | Validation Accuracy  | XX%  |
+
+
+## Random Forrest with Reframed Question: 
+
+In this trial ... 
+
+
+|  Grid Search CV  | Settings |  | |
+| ------------- | ------------- | ------------- | ------------- |
+| criterion  | 'gini'  | 'entropy'  |   | 
+| max_depth  | 2 | 3  | 4 |
+| min_child_weight | 4 | 5 |  |
+| n_estimators | 300 | 400 | 500 |
+
+
+|   | XGBoost Test |
+| ------------- | ------------- |
+| Training Accuracy  | XX%  |
+| Validation Accuracy  | XX%  |
+
+
  
 # Results 
 This was a very challenging question with a prediction accuracy that is understandibly difficult. Given the large number of classifications to predict and the limited information available about each user, our expectation is to beat a random guess and or the mean probability estimate. 
