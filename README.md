@@ -39,7 +39,7 @@ Start and End times are saved in a format that is not readable by Pandas or our 
 Next we connect daily weather information. The hypothesis is that this may aide in predicting a destination as fair weather might increase trips to parks and beaches. Data was collected from [https://www.weather.gov/okx/centralparkhistorical]
 
 - Insert Neighborhood Name
-Connect Neighborhood name data to our 'End Station Latitude/Longitude' to use as labels for predictions. In the most widely used context there are 51 neighborhoods in New York City.
+Connect Neighborhood name data from the mapbox api to our 'End Station Latitude/Longitude' to use as labels for predictions. In the most widely used context there are 51 neighborhoods in New York City.
 
 - Convert usertype to categories
 Our CitiBike data includes a label for each trip to determine if it was made by a rider who is an annual subscriber or someone who has purchased a temporary pass. We assume that there may be destinations more likely chosen by tourist users.
@@ -61,11 +61,13 @@ Now that our primary categories are set we will remove features that are not nee
 # Exploratory Data Analysis 
 
 View Correlation between varibles.
+![pair plot between predictors](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/pairplot.png)
 
-dist plots
 value counts 
-ETS
+![Count of Stop Neighborhood](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/stop%20count.png)
 
+Correlation between predictors
+![Relationship Between Predictors](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/corr_between_preds_heatmap.png)
 
 # Models 
  
@@ -250,7 +252,7 @@ XGBoost Feature Importance:
 
 ---
 
-## Smote 
+## Smote and Undersampling
 
 link 
 
@@ -294,13 +296,12 @@ Thus, given the new question of Given the starting *neighborhood* from which a r
 ---
 
 # Results 
-This was a very challenging question with a prediction accuracy that is understandibly difficult. Given the large number of classifications to predict and the limited information available about each user, our expectation is to beat a random guess and or the mean probability estimate. 
+This was a very challenging question with a prediction accuracy that is understandably difficult. Given the large number of classifications to predict and the limited information available our model could only accurately predict 9.7% of the time—this is 7.7% better than randomly guessing.  Our models over-relied on the most common neighborhoods, while ignoring less common ones. When looking at the Roc curves each neighborhood/class  (1 vs. many), our neighborhoods which were barely predicted had very small AOCs. 
 
-
-  ROC Cross
-  Accuracy
-  CFMT 
+When we reframed our model and reduced the number of classes in our perdictors by using start neighborhoods instead of bike station IDs, we could better predict our end neighborhood. Our overall accuracy went up to 14.76%--12.8% better than randomly guessing.
  
 ---
 
 # Next Steps 
+
+Based on the results found here, we believe adding more infomration about the neighborhoods and the riders would have the biggest impact on our models. We probably would not be able to get more information on the riders, so using the Yelp! API we will gather information on the charatceristics of each neighborhood, which may give more details on why the bikers are going to these neighborhoods and who they are. Another possibility would be to do the same for the neighborhood they are coming from.
