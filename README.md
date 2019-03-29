@@ -46,7 +46,10 @@ Our CitiBike data includes a label for each trip to determine if it was made by 
 
 
 - Smooth '1969' birth year
-Lorem Ipsum
+
+![Age graph](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/original_age_dist.png)
+
+![fixed age](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/fixed_age_dist.png)
 
 - Label Encode for Morning versus Evening.
 To better fit a model, using a split day rather than by hour might aide in determining a destination. The idea is that many nieghborhoods are destinations for commuters going to work in the morning and alternatively heading home in the evening.
@@ -62,6 +65,10 @@ View Correlation between varibles.
 dist plots
 value counts 
 ETS
+
+![Age graph](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/original_age_dist.png)
+
+
 
 # Models 
  
@@ -81,7 +88,7 @@ We will test with the Xgboost classifier and use the same variables we have for 
 
   
 |   | Two Class Test |
-| ------------- | ------------- |
+| ------------- | :-------------: |
 | Training Accuracy  | 86.19%  |
 | Content Cell  | 65.4%  |
   
@@ -102,7 +109,7 @@ Our first model on the full data will be run with the Random Forrest Classifier.
 To find the best tuning for our model we start with a Grid Search function.  The Grid Search will iterate over our Random Forrest Classifier changing the hyperparameters each time looking for the best performing model. We start with the following grid of parameters to test: 
 
 |  Grid Search CV  | Settings |  | |
-| ------------- | ------------- | ------------- | ------------- |
+| ------------- | :-------------: | :-------------: | :-------------: |
 | criterion  | 'gini'  | 'entropy'  |   | 
 | max_depth  | 2 | 3  | 4 |
 | min_child_weight | 4 | 5 |  |
@@ -111,7 +118,7 @@ To find the best tuning for our model we start with a Grid Search function.  The
 This Grid Search produced best parameters of: 
 
 |   | Best Parameters  |
-| ------------- | ------------- |
+| ------------- | :-------------: |
 | criterion  | 'gini  |
 | max_depth  | 3  |
 | n_estimators | 400 |
@@ -120,7 +127,7 @@ Then we run our model with these parameters:
 
 
 |   | Random Forrest  |
-| ------------- | ------------- |
+| ------------- | :-------------: |
 | Training Accuracy  | 8.24%  |
 | Validation Accuracy  | 6.96%  |
 
@@ -153,13 +160,13 @@ We begin each trial with a parameter search similar to the grid search above. Th
 * Linear Model
 
 |   | Best Parameters  |
-| ------------- | ------------- |
+| ------------- | :-------------: |
 | c  | 1 |
 | Gamma  | 0.001 |
 
 
 |   | Support Vector Machine Test |
-| ------------- | ------------- |
+| ------------- | :-------------: |
 | Training Accuracy  | 7.6%  |
 | Validation Accuracy  | 6.56%  |
 
@@ -169,15 +176,15 @@ We begin each trial with a parameter search similar to the grid search above. Th
 
 * RBF Model
 
-|   | Best Parameters  |
-| ------------- | ------------- |
+|  RBF | Best Parameters  |
+| ------------- | :-------------: |
 | c  | 1 |
 | Gamma  | 0.1 |
 
 
 
-|   | Support Vector Machine Test |
-| ------------- | ------------- |
+| RBF | Support Vector Machine Test |
+| ------------- | :-------------: |
 | Training Accuracy  | 7.573%  |
 | Validation Accuracy  | 6.667%  |
 
@@ -187,15 +194,15 @@ We begin each trial with a parameter search similar to the grid search above. Th
 
 * Poly Kernel Model
 
-|   | Best Parameters  |
-| ------------- | ------------- |
+| POLY  | Best Parameters  |
+| ------------- | :-------------: |
 | c  | 0.001 |
 | Gamma  | 1 |
 
 
 
-|   | Support Vector Machine Test |
-| ------------- | ------------- |
+|  POLY | Support Vector Machine Test |
+| ------------- | :-------------: |
 | Training Accuracy  | 6.658%  |
 | Validation Accuracy  | 6.133%  |
 
@@ -214,7 +221,7 @@ For this trial we used the largest sample set thus far and produced the best res
 
 
 |  Grid Search CV  | Settings | XGBoost | |
-| ------------- | ------------- | ------------- | ------------- |
+| ------------- | :-------------: | :-------------: | :-------------: |
 | learning_rate  | 0.5  | 0.7  | 0.1  | 
 | max_depth  | 2 | 3  | 4 |
 | min_child_weight | 4 | 5 |  |
@@ -223,7 +230,7 @@ For this trial we used the largest sample set thus far and produced the best res
 This Grid Search resulted in the following best parameters:
 
 |  XGBoost | Best Parameters  |
-| ------------- | ------------- |
+| ------------- | :-------------: |
 | learning_rate  | 0.5  |
 | max_depth  | 2 |
 | min_child_weight | 4 |
@@ -231,7 +238,7 @@ This Grid Search resulted in the following best parameters:
 
 
 |   | XGBoost Test |
-| ------------- | ------------- |
+| ------------- | :-------------: |
 | Training Accuracy  | 10.83%  |
 | Validation Accuracy  | 9.767%  |
 
@@ -258,21 +265,33 @@ Conclusions
 
 ## Random Forrest with Reframed Question: 
 
-In this trial ... 
+In this trial we reframed the question to truncate our start stations into the same parameters as our detination neighborhoods. This reduced this prominent feature from **750** categories to just **51**. This can provide more meaning perdiction. 
 
+Thus, given the new question of Given the starting *neighborhood* from which a rider started, what is the most likely destination neighborhood.
 
 |  Grid Search CV  | Settings |  | |
-| ------------- | ------------- | ------------- | ------------- |
-| criterion  | 'gini'  | 'entropy'  |   | 
-| max_depth  | 2 | 3  | 4 |
-| min_child_weight | 4 | 5 |  |
-| n_estimators | 300 | 400 | 500 |
+| ------------- | :-------------: | ------------- | ------------- |
+| criterion |   | 'entropy'  |   | 
+| max_depth  | None | 2  | 5 |
+| min_smalpes_split | 2 | 5 | 12 |
+| min_smaple_leaf | 1 | 2 | |
+| n_estimators | 50 | 100 | 150 |
 
 
-|   | XGBoost Test |
+|  Grid Search CV  | BEst Parameters | 
+| ------------- | :-------------: | 
+| criterion |   | 'entropy'  |   
+| max_depth  | None | 5 |
+| min_samples_split | 2 | 
+| min_sample_leaf | 2 |
+| n_estimators | 50 |
+
+
+
+|   | Random Forrest Test |
 | ------------- | ------------- |
-| Training Accuracy  | XX%  |
-| Validation Accuracy  | XX%  |
+| Training Accuracy  | 40.68%  |
+| Validation Accuracy  | 14.76%  |
 
 
 ---
