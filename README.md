@@ -69,6 +69,8 @@ Once we have tidy data to work with we start testing the accuracy of a variety o
 
 When running models we will primarily look for a high accuracy score. In addition, we will observe a Confusion Matrix for each trial to determine where the predictions are being made. Lastly we will peroiodally check our Feature Importance for each class to verify each variables contribution to the final prediction. 
 
+---
+
 ## 2 class test
 
 https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/citibike_two_class.ipynb
@@ -88,7 +90,9 @@ We will test with the Xgboost classifier and use the same variables we have for 
   ![Confusion Matrix for a Two Class Trial](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/two_class_CFM.png)
   
 The accuracy here is not execptional, however the results are better than a random guess between the two target neighborhoods. Addtionally, our training accuracy is much higher leading us to assume that with some tuning this predction could be more accurate. We will use the time to tune on other models containing all target classes. 
-  
+
+---
+
 ## Random Forest & ROC curve
 
 https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/citibike_rand_forrest.ipynb
@@ -128,6 +132,8 @@ Feature Importance for Random Forrest:
 
 ![Random Forrest Feature Importance](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/rand_f_feat.png)
 
+---
+
 ### Roc Curve
 
 explain roc curve
@@ -135,6 +141,7 @@ explain roc curve
 ![Roc Curve Graph](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/roc_curve.png)
 
 
+---
 
 ### Support Vector Machines
 
@@ -197,6 +204,8 @@ We begin each trial with a parameter search similar to the grid search above. Th
 
 ![svm poly](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/svm_poly_sfm.png)
 
+---
+
 ## XGBoost
 
 |  Grid Search CV  | Settings |  | |
@@ -212,6 +221,7 @@ We begin each trial with a parameter search similar to the grid search above. Th
 | Training Accuracy  | XX%  |
 | Validation Accuracy  | XX%  |
 
+---
 
 ## Random Forrest with Reframed Question: 
 
@@ -232,7 +242,8 @@ In this trial ...
 | Validation Accuracy  | XX%  |
 
 
- 
+---
+
 # Results 
 This was a very challenging question with a prediction accuracy that is understandibly difficult. Given the large number of classifications to predict and the limited information available about each user, our expectation is to beat a random guess and or the mean probability estimate. 
 
@@ -240,5 +251,7 @@ This was a very challenging question with a prediction accuracy that is understa
   ROC Cross
   Accuracy
   CFMT 
-  
+ 
+---
+
 # Next Steps 
