@@ -141,7 +141,7 @@ explain roc curve!
 
 ---
 
-### Support Vector Machines
+## Support Vector Machines
 
 https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/citibike_svm.ipynb
 
@@ -236,13 +236,25 @@ This Grid Search resulted in the following best parameters:
 | Validation Accuracy  | 9.767%  |
 
 XGBoost Confusion Matrix:
+
 ![500k xgboost](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/500k_xgboost.png)
 
 XGBoost Feature Importance: 
+
 ![500k XgBoost](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/500k_xgB_feat.png)
 
 
 ---
+
+## Smote 
+
+link 
+
+Explain
+
+Results
+
+Conclusions
 
 ## Random Forrest with Reframed Question: 
 
