@@ -66,9 +66,6 @@ dist plots
 value counts 
 ETS
 
-![Age graph](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/original_age_dist.png)
-
-
 
 # Models 
  
