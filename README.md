@@ -132,11 +132,9 @@ Feature Importance for Random Forrest:
 
 ![Random Forrest Feature Importance](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/rand_f_feat.png)
 
----
+### ROC Curve for our Random Forest Model
 
-### Roc Curve
-
-explain roc curve
+explain roc curve!
 
 ![Roc Curve Graph](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/roc_curve.png)
 
@@ -208,18 +206,41 @@ We begin each trial with a parameter search similar to the grid search above. Th
 
 ## XGBoost
 
-|  Grid Search CV  | Settings |  | |
+https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/citibike_xgboost.ipynb
+
+In this trial we used XGBoost. This algorithim allows for a quicker processing of a Gradient Boosted Decision Tree. Thus we quickly realized that we could see better results with a larger volume of data. XGBoost was able to process this on our machines in a timely fashion. 
+
+For this trial we used the largest sample set thus far and produced the best results thus far. 
+
+
+|  Grid Search CV  | Settings | XGBoost | |
 | ------------- | ------------- | ------------- | ------------- |
-| criterion  | 'gini'  | 'entropy'  |   | 
+| learning_rate  | 0.5  | 0.7  | 0.1  | 
 | max_depth  | 2 | 3  | 4 |
 | min_child_weight | 4 | 5 |  |
 | n_estimators | 300 | 400 | 500 |
 
+This Grid Search resulted in the following best parameters:
+
+|  XGBoost | Best Parameters  |
+| ------------- | ------------- |
+| learning_rate  | 0.5  |
+| max_depth  | 2 |
+| min_child_weight | 4 |
+| n_estimators | 300 |
+
 
 |   | XGBoost Test |
 | ------------- | ------------- |
-| Training Accuracy  | XX%  |
-| Validation Accuracy  | XX%  |
+| Training Accuracy  | 10.83%  |
+| Validation Accuracy  | 9.767%  |
+
+XGBoost Confusion Matrix:
+![500k xgboost](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/500k_xgboost.png)
+
+XGBoost Feature Importance: 
+![500k XgBoost](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/500k_xgB_feat.png)
+
 
 ---
 
