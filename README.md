@@ -24,6 +24,8 @@ We will learn if the massive data size available can overcome our assumptions of
 
 # Data Collection and Cleaning
 
+https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/citibike_data_cleaning_and_eda.ipynb
+
 First we collected 1 year worth of trip data from Cibibike.com. We learn that there are 17million records in the 2018 data, which is too large for our processing capbabilities. Thus we import each month of data, and randomly sample 10% from each month to create a more manageable, yet representative list.
 
 
@@ -53,7 +55,8 @@ To better fit a model, using a split day rather than by hour might aide in deter
 Remove redundant rows -
 Now that our primary categories are set we will remove features that are not needed or redundant and we are ready to run models on a tidy data set. We save the pandas dataframe as a csv file from here in order to work quickly on future workbooks. 
 
-# EDA 
+# Exploratory Data Analysis 
+
 View Correlation between varibles.
 
 dist plots
@@ -62,14 +65,98 @@ ETS
 
 # Models 
  
- 2 class test
-  acc % 
-  CF plot
+Once we have tidy data to work with we start testing the accuracy of a variety of models to determine which type of algorithm produces the best results for our data. 
+
+When running models we will primarily look for a high accuracy score. In addition, we will observe a Confusion Matrix for each trial to determine where the predictions are being made. Lastly we will peroiodally check our Feature Importance for each class to verify each variables contribution to the final prediction. 
+
+## 2 class test
+
+https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/citibike_two_class.ipynb
+
+In this notebook we will take in our data from CitiBike and organize down to just one start station and two end neighborhoods. The goal is to test if we can better predict on a question with fewer target classes.
+
+We will test with the Xgboost classifier and use the same variables we have for other trials.
+
   
+|   | Two Class Test |
+| ------------- | ------------- |
+| Training Accuracy  | 86.19%  |
+| Content Cell  | 65.4%  |
   
- Random Forest & ROC curve
- SVM
- XGBoost
+  CF plot:
+  
+  ![Confusion Matrix for a Two Class Trial](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/two_class_CFM.png)
+  
+The accuracy here is not execptional, however the results are better than a random guess between the two target neighborhoods. Addtionally, our training accuracy is much higher leading us to assume that with some tuning this predction could be more accurate. We will use the time to tune on other models containing all target classes. 
+  
+## Random Forest & ROC curve
+
+https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/citibike_rand_forrest.ipynb
+
+Our first real model will be run with the Random Forrest Classifier. 
+
+To find the best tuning for our model we start with a Grid Search function.  The Grid Search will iterate over our Random Forrest Classifier changing the hyperparameters each time looking for the best performing model. We start with the following grid of parameters to test: 
+
+|  Grid Search CV  | Settings |  | |
+| ------------- | ------------- | ------------- | ------------- |
+| criterion  | 'gini'  | 'entropy'  |   | 
+| max_depth  | 2 | 3  | 4 |
+| min_child_weight | 4 | 5 |  |
+| n_estimators | 300 | 400 | 500 |
+
+This Grid Search produced best parameters of: 
+
+|   | Best Parameters  |
+| ------------- | ------------- |
+| criterion  | 'gini  |
+| max_depth  | 3  |
+| n_estimators | 400 |
+
+Then we run our model with these parameters: 
+
+
+|   | Random Forrest  |
+| ------------- | ------------- |
+| Training Accuracy  | 8.24%  |
+| Validation Accuracy  | 6.96%  |
+
+Confusion Matrix for Random Forest with 
+
+[Random Forest CFM](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/random_forrest_dfm.png)
+
+Feature Importance for Random Forrest: 
+
+[Random Forrest Feature Importance](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/rand_f_feat.png)
+
+### Roc Curve
+
+![Roc Curve Graph](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/roc_curve.png)
+
+
+
+## Support Vector Machines
+
+
+|   | Support Vector Machine Test |
+| ------------- | ------------- |
+| Training Accuracy  | 86.19%  |
+| Validation Accuracy  | 65.4%  |
+
+
+## XGBoost
+
+|  Grid Search CV  | Settings |  | |
+| ------------- | ------------- | ------------- | ------------- |
+| criterion  | 'gini'  | 'entropy'  |   | 
+| max_depth  | 2 | 3  | 4 |
+| min_child_weight | 4 | 5 |  |
+| n_estimators | 300 | 400 | 500 |
+
+
+|   | XGBoost Test |
+| ------------- | ------------- |
+| Training Accuracy  | XX%  |
+| Validation Accuracy  | XX%  |
  
 # Results 
 This was a very challenging question with a prediction accuracy that is understandibly difficult. Given the large number of classifications to predict and the limited information available about each user, our expectation is to beat a random guess and or the mean probability estimate. 
