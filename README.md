@@ -1,16 +1,10 @@
 
 # CitiBike Destination Predictor
-
 ---
-
 # Flatiron School - NYC
-
 --- 
-
 # Data Science Immersive - Jan 28th, 2019 Cohort
-
 ---
-
 This project is a collaboration between [Elena Morais](https://github.com/elenasm7) and [Derrick Lewis](https://github.com/lewi0332)
 
 ---
