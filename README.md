@@ -122,11 +122,11 @@ Then we run our model with these parameters:
 
 Confusion Matrix for Random Forest with 
 
-[Random Forest CFM](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/random_forrest_dfm.png)
+![Random Forest CFM](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/random_forrest_dfm.png)
 
 Feature Importance for Random Forrest: 
 
-[Random Forrest Feature Importance](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/rand_f_feat.png)
+![Random Forrest Feature Importance](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/rand_f_feat.png)
 
 ### Roc Curve
 
