@@ -140,3 +140,11 @@ def ran_function(X, y, Xt, yt, n_est, rand, crit='gini', maxd=5):
     print("Training Accuracy: {:.4}%".format(training_accuracy * 100))
     print("Validation accuracy: {:.4}%".format(val_accuracy * 100))
     return show_cf(yt, val_preds), plot_feature_importances(clf, X)
+
+def fix_emd_neighborhood(row):
+    if row['end_nhbr_x'] and (type(row['end_nhbr_x']) != float):
+        return row['end_nhbr_x']
+    elif  row['end_nhbr_y'] and (type(row['end_nhbr_y']) != float):
+        return row['end_nhbr_y']
+    else:
+        return 'What'
