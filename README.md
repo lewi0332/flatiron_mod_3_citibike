@@ -52,9 +52,9 @@ Our CitiBike data includes a label for each trip to determine if it was made by 
 
 - Smooth '1969' birth year
 
-![Age graph](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/original_age_dist.png)
+![Age graph](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/original_age_dist.png)
 
-![fixed age](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/fixed_age_dist.png)
+![fixed age](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/fixed_age_dist.png)
 
 - Label Encode for Morning versus Evening.
 To better fit a model, using a split day rather than by hour might aide in determining a destination. The idea is that many nieghborhoods are destinations for commuters going to work in the morning and alternatively heading home in the evening.
