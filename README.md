@@ -31,36 +31,36 @@ We will learn if the massive data size available can overcome our assumptions of
 
 https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/citibike_data_cleaning_and_eda.ipynb
 
-First we collected 1 year worth of trip data from Cibibike.com. We learn that there are 17million records in the 2018 data, which is too large for our processing capbabilities. Thus we import each month of data, and randomly sample 10% from each month to create a more manageable, yet representative list.
+First we collected 1 year worth of trip data from Citibike.com. We learn that there are 17million records in the 2018 data, which is too large for our processing capbabilities. Thus we import each month of data, and randomly sample 10% from each month to create a more manageable, yet representative list.
 
 
- - **NAN values**
+ - **NAN values-**
 There are just 260 NaN values missing the station start and end points in the file of nearly 1.8million. This information is crucial to the prediction and thus can not be substituted. We have decidied to simply remove these rows.
 
-- **Convert to DateTime**
+- **Convert to DateTime-**
 Start and End times are saved in a format that is not readable by Pandas or our future models. We will convert the columns with this information into a standard date format, then split the relevant information into individual columns to be used as a specific independant variable.
 
-- **Insert Weather Data**
+- **Insert Weather Data-**
 Next we connect daily weather information. The hypothesis is that this may aide in predicting a destination as fair weather might increase trips to parks and beaches. Data was collected from [https://www.weather.gov/okx/centralparkhistorical]
 
-- **Insert Neighborhood Name**
+- **Insert Neighborhood Name-**
 Connect Neighborhood name data from the mapbox api to our 'End Station Latitude/Longitude' to use as labels for predictions. In the most widely used context there are 51 neighborhoods in New York City.
 
-- **Convert usertype to categories**
+- **Convert usertype to categories-**
 Our CitiBike data includes a label for each trip to determine if it was made by a rider who is an annual subscriber or someone who has purchased a temporary pass. We assume that there may be destinations more likely chosen by tourist users.
 
 
-- **Smooth '1969' birth year**
+- **Smooth '1969' birth year-**
 
 ![Age graph](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/original_age_dist.png)
 
 ![fixed age](https://github.com/lewi0332/flatiron_mod_3_citibike/blob/master/Visualizations/fixed_age_dist.png)
 
-- Label Encode for Morning versus Evening.
+- **Label Encode for Morning versus Evening-**.
 To better fit a model, using a split day rather than by hour might aide in determining a destination. The idea is that many nieghborhoods are destinations for commuters going to work in the morning and alternatively heading home in the evening.
 
 
-Remove redundant rows -
+- **Remove redundant rows-**
 Now that our primary categories are set we will remove features that are not needed or redundant and we are ready to run models on a tidy data set. We save the pandas dataframe as a csv file from here in order to work quickly on future workbooks. 
 
 # Exploratory Data Analysis 
