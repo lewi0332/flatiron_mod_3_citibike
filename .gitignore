@@ -24,7 +24,6 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
-test_data.csv
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -103,9 +102,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
-.csv
-citibike_data/
 
 
 
