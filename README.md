@@ -257,16 +257,6 @@ XGBoost Feature Importance:
 
 ---
 
-## Smote and Undersampling
-
-link 
-
-Explain
-
-Results
-
-Conclusions
-
 ## Random Forrest with Reframed Question: 
 
 In this trial we reframed the question to truncate our start stations into the same parameters as our detination neighborhoods. This reduced this prominent feature from **750** categories to just **51**. This can provide more meaning perdiction. 
